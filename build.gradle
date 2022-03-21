@@ -3,7 +3,7 @@ buildscript {
     ext {
         retrofit_version = '2.9.0'
         moshi_version = '1.9.3'
-        version_navigation = "1.0.0"
+        version_navigation = "2.4.1"
     }
 }
 
