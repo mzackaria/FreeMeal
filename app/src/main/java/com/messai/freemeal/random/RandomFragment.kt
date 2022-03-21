@@ -7,26 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.messai.freemeal.R
+import com.messai.freemeal.databinding.RandomFragmentBinding
 
 class RandomFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RandomFragment()
+    private val viewModel: RandomViewModel by lazy {
+        ViewModelProvider(this).get(RandomViewModel::class.java)
     }
-
-    private lateinit var viewModel: RandomViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.random_fragment, container, false)
+        val binding = RandomFragmentBinding.inflate(inflater)
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RandomViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

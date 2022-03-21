@@ -5,6 +5,9 @@ plugins {
 
 android {
     compileSdk 31
+    buildFeatures {
+        dataBinding true
+    }
 
     defaultConfig {
         applicationId "com.messai.freemeal"
@@ -49,6 +52,8 @@ dependencies {
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
+
+    implementation "androidx.core:core-ktx:$version_core"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
