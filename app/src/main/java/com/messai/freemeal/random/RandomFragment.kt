@@ -20,6 +20,8 @@ class RandomFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = RandomFragmentBinding.inflate(inflater)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
