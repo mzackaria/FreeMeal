@@ -8,7 +8,6 @@ import com.messai.freemeal.api.getRandomMeal
 import kotlinx.coroutines.launch
 
 class RandomViewModel(app: Application) : AndroidViewModel(app) {
-    // TODO: Implement the ViewModelx`
 
     private val _meal = MutableLiveData<Meal>()
     val meal: LiveData<Meal>
@@ -21,8 +20,7 @@ class RandomViewModel(app: Application) : AndroidViewModel(app) {
     private fun initMeal() {
         viewModelScope.launch {
             try {
-                val meal = getRandomMeal()
-                _meal.value = meal
+                _meal.value = getRandomMeal()
             } catch (e: Exception) {
                 e.printStackTrace()
             }

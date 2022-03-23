@@ -8,13 +8,11 @@ const val MAX_NB_INGREDIENTS = 20
 
 suspend fun getRandomMeal() : Meal {
     try {
-
         val response: String = MealApi.retrofitService.getRandomMeal().await()
         val jsonObject = JSONObject(response)
         val meals = parseMealJsonResult(jsonObject)
         return if (meals.size == 0)  throw Exception("No random meal found in api call")
         else meals.get(0)
-
     } catch (e: Exception) {
         throw e
     }
@@ -29,20 +27,20 @@ private fun parseMealJsonResult(json: JSONObject): ArrayList<Meal> {
         val ingredients: Map<String, String> = getMapIngredientsFromJson(mealObject)
         val tags: List<String> = mealObject.getString("strTags").split(",")
         val meal = Meal(
-            mealObject.getLong("idMeal"),
-            mealObject.getString("strMeal"),
-            mealObject.getString("strDrinkAlternate"),
-            mealObject.getString("strCategory"),
-            mealObject.getString("strArea"),
-            mealObject.getString("strInstructions"),
-            mealObject.getString("strMealThumb"),
-            tags,
-            mealObject.getString("strYoutube"),
+            id = mealObject.getLong("idMeal"),
+            title = mealObject.getString("strMeal"),
+            drinkAlternance = mealObject.getString("strDrinkAlternate"),
+            category = mealObject.getString("strCategory"),
+            area = mealObject.getString("strArea"),
+            instructions = mealObject.getString("strInstructions"),
+            mealThumb = mealObject.getString("strMealThumb"),
+            tags = tags,
+            youtubeLink = mealObject.getString("strYoutube"),
             ingredients = ingredients,
-            mealObject.getString("strSource"),
-            mealObject.getString("strImageSource"),
-            mealObject.getString("strCreativeCommonsConfirmed"),
-            mealObject.getString("strCreativeCommonsConfirmed")
+            source = mealObject.getString("strSource"),
+            imageSrc = mealObject.getString("strImageSource"),
+            creativeCommonsConfirmed = mealObject.getString("strCreativeCommonsConfirmed"),
+            dateModified = mealObject.getString("dateModified")
         )
         meals.add(meal)
     }
