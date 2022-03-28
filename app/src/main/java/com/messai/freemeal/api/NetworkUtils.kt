@@ -33,12 +33,12 @@ private fun parseMealJsonResult(json: JSONObject): ArrayList<Meal> {
             category = mealObject.getString("strCategory"),
             area = mealObject.getString("strArea"),
             instructions = mealObject.getString("strInstructions"),
-            mealThumb = mealObject.getString("strMealThumb"),
+            imageSrc = mealObject.getString("strMealThumb"),
             tags = tags,
             youtubeLink = mealObject.getString("strYoutube"),
             ingredients = ingredients,
             source = mealObject.getString("strSource"),
-            imageSrc = mealObject.getString("strImageSource"),
+            secondaryImageSrc = mealObject.getString("strImageSource"),
             creativeCommonsConfirmed = mealObject.getString("strCreativeCommonsConfirmed"),
             dateModified = mealObject.getString("dateModified")
         )

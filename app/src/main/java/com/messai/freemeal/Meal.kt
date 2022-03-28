@@ -7,12 +7,12 @@ data class Meal (
     val category: String,
     val area: String,
     val instructions: String,
-    val mealThumb: String,
+    val imageSrc: String,
     val tags: List<String>,
     val youtubeLink: String,
     val ingredients: Map<String, String>,
     val source: String,
-    val imageSrc: String,
+    val secondaryImageSrc: String,
     val creativeCommonsConfirmed: String,
     val dateModified: String
 )
